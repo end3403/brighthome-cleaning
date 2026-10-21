@@ -483,6 +483,48 @@
                 }
 
             }
+
+            .site-footer {
+                padding: 40px 20px 25px;
+                background-color: #122b23;
+                color: #faf8f3;
+                text-align: center;
+            }
+
+            .site-footer h2 {
+                margin: 0 0 8px;
+                color: #d8c49a;
+                font-family: Georgia, "Times New Roman", serif;
+            }
+
+            .site-footer p {
+                margin: 8px 0 20px;
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 24px;
+                margin: 24px 0;
+            }
+
+            .footer-links a {
+                color: #faf8f3;
+                text-decoration: none;
+            }
+
+            .footer-links a {
+                color: #d8c49a;
+            }
+
+            .site-footer .copyright {
+                margin-top: 28px;
+                padding-top: 18px;
+                border-top: 1px solid rgba(216, 196, 154, 0.3);
+                font-family: Arial, sans-serif;
+                font-size: 13px;
+            }
         }
     </style>
 
@@ -568,7 +610,19 @@
         </section>
     </main>
 
-    <footer>
-        <h2>BrightHome Cleaning — NYC</h2>
+    <footer class="site-footer">
+        <h2>BrightHome Cleaning</h2>
+        <p>Thoughtful cleaning. Beautifully maintained homes.</p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Request a Quote</a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 BrightHome Cleaning. Demo website created for portfolio purposes.
+        </p>
+
     </footer>
 </body>
