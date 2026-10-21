@@ -6,195 +6,500 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrightHome Cleaning</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f8fb;
-            color: #243447;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #263b38;
+            background-color: #faf8f3;
+            line-height: 1.8;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 20px 7%;
+            background-color: #faf8f3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .navbar .brand {
+            color: #193b30;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .navbar .brand span {
+            color: #b59659;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links>a:not(.nav-cta) {
+            color: #193b30;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links>a:not(.nav-cta):hover {
+            color: #b59659;
+        }
+
+        .navbar .nav-cta {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #193b30;
+            color: #ffffff;
+            border: 1px solid #193b30;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-cta:hover {
+            background-color: #b59659;
+            color: #193b30;
+            border-color: #b59659;
         }
 
         header {
-            background: linear-gradient(135deg, #087f8c, #075b66);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .hero-content {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .eyebrow {
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            padding: 90px 10%;
+            background:
+                linear-gradient(90deg,
+                    rgba(18, 43, 35, 0.92),
+                    rgba(18, 43, 35, 0.65)),
+                url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
         }
 
         header h1 {
-            font-size: clamp(36px, 6vw, 58px);
-            line-height: 1.15;
-            margin: 0 0 20px;
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.12;
+            margin: 15px 0 22px;
+            max-width: 750px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .eyebrow {
+            color: #dfc28a;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .hero-description {
+            max-width: 580px;
+            color: #f2eee6;
             font-size: 18px;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto 20px;
+            margin-bottom: 32px;
         }
 
-
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
+        .hero-content {
+            max-width: 680px;
         }
 
-        .services {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000010;
+        .eyebrow {
+            color: #218565;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            color: #173f36;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.12;
+            margin: 12px 0 20px;
+        }
+
+        .hero-description {
+            max-width: 560px;
+            color: #536761;
+            font-size: 18px;
+            margin-bottom: 30px;
         }
 
         .button {
             display: inline-block;
-            background: #087f8c;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 6px;
+            padding: 15px 30px;
+            background-color: #c6a66b;
+            color: #192f27;
             text-decoration: none;
-            margin-top: 15px;
-            transition: background 0.3s ease, transform 0.3s ease;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 1px solid #c6a66b;
+            transition: all 0.3s ease;
         }
 
         .button:hover {
-            background: #065f69;
-            transform: translateY(-3px);
+            background-color: #dfc28a;
+            border-color: #dfc28a;
+            transform: translateY(-2px);
         }
+
+        main {
+            width: 100%;
+        }
+
+        main>section {
+            padding: 75px 8%;
+        }
+
+        main h2 {
+            color: #173f36;
+            font-size: 34px;
+            line-height: 1.25;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            background-color: #faf8f3;
+            text-align: center;
+            padding: 90px 8%;
+        }
+
+        .services h2 {
+            color: #193b30;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 4vw, 46px);
+            margin-bottom: 18px;
+        }
+
+        .services>p {
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #716e64;
+            font-size: 17px;
+        }
+
+        .service-card {
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            min-width: 220px;
+            margin: 10px 1%;
+            padding: 35px 25px;
+            background-color: #ffffff;
+            border: 1px solid #e4dccb;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 8px 25px rgba(25, 59, 48, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(25, 59, 48, 0.12);
+        }
+
+        .service-card h3 {
+            color: #193b30;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23px;
+            line-height: 1.35;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #716e64;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .contact {
+            background-color: #193b30;
+            color: #ffffff;
+            text-align: center;
+            padding: 90px 8%;
+        }
+
+        .contact h2 {
+            max-width: 700px;
+            margin: 0 auto 22px;
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 4vw, 46px);
+        }
+
+        .contact>p {
+            max-width: 620px;
+            margin: 0 auto 28px;
+            color: #e7e1d5;
+            font-size: 17px;
+        }
+
+        .contact .button {
+            background-color: #c6a66b;
+            color: #193b30;
+            border: 1px solid #c6a66b;
+        }
+
+        .contact .button:hover {
+            background-color: #dfc28a;
+            border-color: #dfc28a;
+        }
+
+        .contact .contact-note {
+            margin-top: 28px !important;
+            color: #d9c9a5;
+            font-size: 14px;
+        }
+
 
         footer {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 30px 20px;
+            background-color: #102b22;
+            color: #d9c9a5;
             text-align: center;
-            padding: 20px;
-            color: #64748b;
+            border-top: 1px solid rgba(198, 166, 107, 0.35);
         }
 
-        .navbar {
-            background: white;
-            padding: 18px;
-            text-align: center;
+        footer h2,
+        footer h1 {
+            margin: 0;
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            font-weight: 400;
         }
 
-        .navbar a {
-            color: #087f8c;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-
-        .navbar a {
-            color: #243447;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 30px;
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                padding: 16px 5%;
             }
 
-            header {
-                padding: 40px 15px;
-            }
-
-            main {
-                margin: 20px auto;
-                padding: 15px;
-            }
-
-            .navbar a {
+            nav a {
                 margin: 0 8px;
                 font-size: 14px;
             }
 
-            .welcome h2 {
-                font-size: 26px;
+            header {
+                min-height: 400px;
+                padding: 65px 7%;
+            }
+
+            header h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            main>section {
+                padding: 55px 6%;
+            }
+
+            main h2 {
+                font-size: 29px;
+            }
+
+            .service-card {
+                display: block;
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                margin: 18px 0;
+                padding: 28px 20px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 16px;
+                padding: 18px 4%;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px 18px;
+            }
+
+            .navbar .brand {
+                font-size: 23px;
+            }
+
+            .navbar .nav-cta {
+                padding: 8px 12px;
             }
 
             .services {
-                padding: 20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .services * {
+                max-width: 100%;
+            }
+
+            .services {
+                width: 100%;
+                box-sizing: border-box;
+                overflow-x: clip;
+            }
+
+            .services .service-card {
+                display: block;
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                margin: 18px 0;
+                box-sizing: border-box;
+            }
+
+            /* Luxury Quote Request Form */
+            .quote-form {
+                max-width: 650px;
+                margin: 35px auto 0;
+                padding: 35px;
+                background-color: #faf8f3;
+                border: 1px solid #d8c49a;
+                border-radius: 8px;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+                text-align: left;
+                box-sizing: border-box;
+
+            }
+
+            .quote-form .form-group {
+                margin-bottom: 22px;
+            }
+
+            .quote-form label {
+                display: block;
+                margin-bottom: 8px;
+                color: #193b30;
+                font-weight: bold;
+                font-size: 15px;
+            }
+
+            .quote-form input,
+            .quote-form select,
+            .quote-form textarea {
+                display: block;
+                width: 100%;
+                padding: 13px 14px;
+                border: 1px solid #d5d0c5;
+                border-radius: 4px;
+                background-color: #ffffff;
+                color: #263b38;
+                font-family: Arial, sans-serif;
+                font-size: 15px;
+                box-sizing: border-box;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .quote-form input,
+            .quote-form select,
+            .quote-form textarea {
+                outline: none;
+                border-color: #b59659;
+                box-shadow: 0 0 0 3px rgba(181, 150, 89, 0.15);
+            }
+
+            .quote-form textarea {
+                resize: vertical;
+            }
+
+            .quote-form button {
+                width: 100%;
+                padding: 15px 20px;
+                border: 1px solid #193b30;
+                border-radius: 4px;
+                background-color: #193b30;
+                color: #ffffff;
+                font-family: Georgia, "Times New Roman", serif;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .quote-form button {
+                background-color: #b59659;
+                border-color: #b59659;
+                color: #193b30;
+            }
+
+            .quote-form .contact-note {
+                margin-top: 22px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            @media (max-width: 600px) {
+                .quote-form {
+                    padding: 22px 18px;
+                    margin-top: 25px;
+                }
+
+                .quote-form input,
+                .quote-form select,
+                .quote-form textarea {
+                    font-size: 16px;
+                }
+
             }
         }
-
-        .contact {
-            text-align: center;
-            padding: 60px 20px;
-            background: #eaf6f7;
-            margin-top: 30px;
-            border-radius: 12px;
-        }
-
-        .contact h2 {
-            color: #087f8c;
-            font-size: 32px;
-        }
-
-        .contact p {
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 15px auto;
-        }
-
-        .contact-note {
-            color: #526273;
-            font-size: 14px;
-        }
-
-        .contact h2 {
-            color: #087f8c;
-        }
-
-        /* Improve the services section */
-        .services {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            margin-top: 20px;
-        }
-
-        /* Improve headings */
-        .services h2 {
-            color: #087f8c;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        /* Improve paragraph readability */
-        .services p {
-            line-height: 1.8;
-            color: #526273;
-        }
-
-        /* Add a subtle hover effect to the services card */
-        .services {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .services:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-        }
     </style>
+
 </head>
 
 <body>
     <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" class="brand">BrightHome<span> Cleaning</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">Request a Quote</a>
+        </div>
     </nav>
+
 
 
     <header id="home">
@@ -213,37 +518,57 @@
 
     </header>
 
-
     <main>
-        <section id="contact" class="contact">
-            <h2>Ready for a Cleaner Home?</h2>
+        <section id="services" class="services">
+            <h2>Our Cleaning Services</h2>
 
-            ```
-            <p>
-                Let BrightHome Cleaning take care of the mess
-                while you enjoy more of what matters.
-            </p>
+            <p>We provide reliable cleaning services to make your home shine.</p>
 
-            <a class="button" href="mailto:hello@example.com?subject=Cleaning%20Quote%20Request">
-                Request Your Free Quote
-            </a>
+            <div class="service-card">
+                <h3>Regular Home Cleaning</h3>
+                <p>Keep your home fresh, tidy, and comfortable.</p>
+            </div>
 
-            <p class="contact-note">
-                Friendly service. Reliable cleaning. More time for you.
-            </p>
-            ```
+            <div class="service-card">
+                <h3>Deep Cleaning</h3>
+                <p>A detailed clean for those areas that need extra attention.</p>
+            </div>
 
+            <div class="service-card">
+                <h3>Move-In / Move-Out Cleaning</h3>
+                <p>Enjoy a fresh start in your next home.</p>
+            </div>
         </section>
 
+        <section id="contact" class="contact">
+            <h2>Ready for a Cleaner Home?</h2>
+            <p> Tell us about your cleaning needs, and we'll help you get started. </p>
+            <form class="quote-form" action="https://formspree.io/f/mjygnebj" method="POST">
+                <div class="form-group"> <label for="customer-name">Full Name</label> <input type="text"
+                        id="customer-name" name="name" placeholder="Your full name" required> </div>
+                <div class="form-group"> <label for="customer-email">Email Address</label> <input type="email"
+                        id="customer-email" name="email" placeholder="you@example.com" required> </div>
+                <div class="form-group"> <label for="customer-phone">Phone Number (Optional)</label> <input type="tel"
+                        id="customer-phone" name="phone" placeholder="Your phone number"> </div>
+                <div class="form-group"> <label for="cleaning-service">Cleaning Service</label> <select
+                        id="cleaning-service" name="service" required>
+                        <option value="">Choose a service</option>
+                        <option value="regular">Regular Home Cleaning</option>
+                        <option value="deep">Deep Cleaning</option>
+                        <option value="move">Move-In / Move-Out Cleaning</option>
+                    </select> </div>
+                <div class="form-group"> <label for="service-date">Preferred Service Date</label> <input type="date"
+                        id="service-date" name="date"> </div>
+                <div class="form-group"> <label for="customer-details">Additional Details</label> <textarea
+                        id="customer-details" name="details" rows="4"
+                        placeholder="Tell us about your cleaning needs."></textarea> </div> <button type="submit"
+                    class="button"> Request My Free Quote </button>
+                <p class="contact-note"> Friendly service. Reliable cleaning. More time for you. </p>
+            </form>
+        </section>
     </main>
 
-    <section id="contact" class="contact">
-        <h2>Contact BrightHome Cleaning</h2>
-        <p>Ready for a cleaner home? Contact us for a free quote.</p>
-        <a class="button" href="mailto:hello@example.com">Email Us</a>
-    </section>
-
     <footer>
-        <h1>BrightHome Cleaning — NYC</h1>
+        <h2>BrightHome Cleaning — NYC</h2>
     </footer>
 </body>
